@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,9 +13,7 @@ Route::get('/', function () {
 
 // Ruta para mostrar el listado de registros
 
-Route::get('/posts', function () {
-    return "Hola desde la pagina de posts";
-});
+Route::get('/posts', [PostController::class, 'index']);
  
 // Ruta para mostrar un formulario para crear un nuevo registro
 
