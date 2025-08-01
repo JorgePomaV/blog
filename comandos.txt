@@ -1,0 +1,17 @@
+php artisan r:l : para ver todas las rutas
+
+php artisan r:l --except-vendor : para ver rutas creadas por nosotros
+
+php artisan r:l --only-vendor : para ver rutas generadas por paquetes de terceros
+
+php artisan r:l --path=cursos : sirve para aquellas rutas que empiezen con cursos
+
+
+
+---------------------------------------------------------
+--------- Almacenar rutas en cache -----------------
+Solo cuando ya este en produccion porque puede haber conflictos si agregas despues de almacenar en cache
+
+php artisan route:cache : guarda en cache
+
+php artisan route:clear : limpia el cache de las rutas
