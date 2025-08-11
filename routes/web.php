@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 use function Pest\Laravel\post;
 
-Route::get('/', [HomeController::class, 'index']);
+// El controlador tiene un metodo __invoke por lo que no se necesita especificar el método
+Route::get('/', HomeController::class);
 
 
 // Rutas para un CRUD (Create, Read, Update, Delete)
