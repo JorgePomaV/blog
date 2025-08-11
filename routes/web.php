@@ -8,6 +8,37 @@ use function Pest\Laravel\post;
 
 // El controlador tiene un metodo __invoke por lo que no se necesita especificar el método
 Route::get('/', HomeController::class);
+// Grupo de rutas se usa el método group cuando se quiere agrupar varias rutas que comparten un mismo prefijo y nombre, tambien si no tienen la estructura de un crud
+Route::prefix('posts')->name('posts.')->controller(PostController::class)
+    ->group(function () {
+        // Ruta para mostrar el listado de registros
+        Route::get('/', 'index')->name('index');
+
+        // Ruta para mostrar un formulario para crear un nuevo registro
+        Route::get('/create', 'create')->name('create');
+
+        // Ruta para guardar un nuevo registro
+        Route::post('/', 'store')->name('store');
+
+        // Ruta para mostrar un registro en especifico
+        Route::get('/{post}', 'show')->name('show');
+
+        // Ruta para mostrar un formulario para editar un registro en especifico
+        Route::get('/{post}/edit', 'edit')->name('edit');
+
+        // Ruta para actualizar un registro en especifico
+        Route::put('/{post}', 'update')->name('update');
+
+        // Ruta para eliminar un registro en especifico
+        Route::delete('/{post}', 'destroy')->name('destroy');
+    });
+
+
+
+
+
+
+
 
 
 // Rutas para un CRUD (Create, Read, Update, Delete)
@@ -51,6 +82,7 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])
 // GET /posts/create - create
 // POST /posts - store
 // GET /posts/{post} - show 
+
 Route::resource('articulos', PostController::class)
     ->parameters(['articulos' => 'post']) // Cambiamos el nombre del parámetro de la ruta a 'post'
     ->names('posts');// Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .index, .create, .store, .show, etc.
