@@ -28,7 +28,19 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap any application services. traduccion: Inicializa cualquier servicio de la aplicación.
+     * Aquí se pueden definir patrones globales para las rutas, como por ejemplo, un patrón
+     * que acepte solo números para un parámetro específico.
+     * Esto evita tener que definir el patrón en cada ruta individualmente.
+     * En este caso, se define un patrón global para el parámetro 'id' que acepta solo números.
+     * Esto significa que cualquier ruta que tenga un parámetro 'id' será validated
+     * y si el parámetro no es un número, la ruta no será accesible
+     * Esto es útil para evitar errores y asegurar que las rutas reciban los parámetros correctos
+     * Además, se pueden definir patrones para otros parámetros si es necesario.
+     * Por ejemplo, si se quiere que un parámetro de tipo string solo acepte letras, se puede definir un patrón global para ese parámetro.
+     * Esto ayuda a mantener la consistency en las rutas
+     * y a evitar errores comunes en la definición de rutas.
+     * Además, se pueden definir patrones para otros parámetros si es necesario.
      */
     public function boot(): void
     {

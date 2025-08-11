@@ -1,59 +1,58 @@
 <?php
+
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
+use function Pest\Laravel\post;
 
-
-Route::get('/', function () {
-    return "hola desde la pagina principal";
-});
+Route::get('/', [HomeController::class, 'index']);
 
 
 // Rutas para un CRUD (Create, Read, Update, Delete)
-
 // Ruta para mostrar el listado de registros
+/*
+Route::get('/posts', [PostController::class, 'index'])
+        ->name('posts.index'); // Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .index
 
-Route::get('/posts', [PostController::class, 'index']);
- 
 // Ruta para mostrar un formulario para crear un nuevo registro
+Route::get('/posts/create', [PostController::class, 'create'])
+        ->name('posts.create'); // Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .create
 
-Route::get('/posts/create', function () {
-    return "Aqui se muestra el formulario para crear un nuevo post";
-});
 // Ruta para guardar un nuevo registro
+Route::post('/posts', [PostController::class, 'store'])
+        ->name('posts.store'); // Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .store
 
-Route::post('/posts', function () {
-    return "Aqui se procesa el formulario para crear un nuevo post";
-});
 // Ruta para mostrar un registro en especifico
-
-Route::get('/posts/{post}', function ($post) {
-    return "Aqui se muestra la informacion del: " . $post;
-}); 
+Route::get('/posts/{post}', [PostController::class, 'show'])
+        ->name('posts.show'); // Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .show
 
 // Ruta para mostrar un formulario para editar un registro en especifico
-
-Route::get('/posts/{post}/edit', function ($post) {
-    return "Aqui se muestra el formulario para editar el post: " . $post;
-});
+Route::get('/posts/{post}/edit', [PostController::class, 'edit'])
+        ->name('posts.edit'); // Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .edit
 
 // Ruta para actualizar un registro en especifico
-
-Route::put('/posts/{post}', function ($post) {
-    return "Aqui se procesa el formulario para actualizar el post: " . $post;
-});
+Route::put('/posts/{post}', [PostController::class, 'update'])
+        ->name('posts.update'); // Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .update   
 
 // Ruta para eliminar un registro en especifico
-
-Route::delete('/posts/{post}', function ($post) {
-    return "Aqui se elimina el post: " . $post;
-});
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])
+        ->name('posts.destroy'); // Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .destroy
 
 
 
+*/
 
-
-
+// Definición de rutas utilizando el recurso de Laravel para manejar CRUD automáticamente
+// Esto crea todas las rutas necesarias para un CRUD de posts
+// Las rutas generadas son las siguientes:
+// GET /posts - index
+// GET /posts/create - create
+// POST /posts - store
+// GET /posts/{post} - show 
+Route::resource('articulos', PostController::class)
+    ->parameters(['articulos' => 'post']) // Cambiamos el nombre del parámetro de la ruta a 'post'
+    ->names('posts');// Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .index, .create, .store, .show, etc.
 
 
 
