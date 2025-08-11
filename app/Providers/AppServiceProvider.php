@@ -45,5 +45,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Route::pattern('id', '[0-9]+'); // Define a global pattern for 'id' parameter
+
+        // Define global resource verbs (cambia los nombres de los verbos que estan definidos en la ruta)
+        Route::resourceVerbs([
+            'create' => 'crear',
+            'edit' => 'editar',
+        ]);
     }
 }
