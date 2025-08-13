@@ -17,5 +17,13 @@
    <p>@php
    echo $globalVariable
    @endphp</p>
+    
+    
+    @if(isset($globalVariable2))
+        <p>{{ $globalVariable2 }}</p>
+    @else
+        <p>La  variable globalVariable2 solo se puede ver en la vista de welcome</p>
+    @endif
+
 </body>
 </html>
