@@ -1,0 +1,12 @@
+TEMAS
+
+Como almacenar rutas en cache?: se usa para no tener que recargas en cada solicitud y acelerar el sistema.
+
+Route resourse: se crean rutas con una sola linea de codigo, se usan cuando solo se necesitan rutas preterminadas de curd laravel.
+                tambien se pueden customisar.
+
+Route con Invoque: se usa cuando solo un controlador tiene solo una ruta, simplifica lineas de codigo y buenas practicas.
+
+Grupo de rutas: alternativa a Route resourse ya que simplifica cuando tenemos rutas que no son preterminadas de un CRUD laravel
+                se puede simplificar si tienen el mismo prefijo y name.
+

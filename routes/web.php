@@ -9,8 +9,7 @@ use function Pest\Laravel\post;
 // El controlador tiene un metodo __invoke por lo que no se necesita especificar el método
 Route::get('/', HomeController::class);
 // Grupo de rutas se usa el método group cuando se quiere agrupar varias rutas que comparten un mismo prefijo y nombre, tambien si no tienen la estructura de un crud
-Route::prefix('posts')->name('posts.')->controller(PostController::class)
-    ->group(function () {
+Route::prefix('posts')->name('posts.')->controller(PostController::class)->group(function () {
         // Ruta para mostrar el listado de registros
         Route::get('/', 'index')->name('index');
 
