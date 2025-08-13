@@ -10,7 +10,25 @@ class PostController extends Controller
     // Mostra el listado de posts
     public function index()
     {
-        return view('post.index');
+        $productos = [
+            [
+                'nombre' => 'Producto 1',
+                'descripcion' => 'Descripcion del producto 1',
+                'precio' => 100
+            ],
+            [
+                'nombre' => 'Producto 2',
+                'descripcion' => 'Descripcion del producto 2',
+                'precio' => 200
+            ],
+            [
+                'nombre' => 'Producto 3',
+                'descripcion' => 'Descripcion del producto 3',
+                'precio' => 300
+            ]
+        ];
+
+        return view('post.index', compact('productos'));
     }
     // Muestra un formulario para crear un nuevo post
     public function create()

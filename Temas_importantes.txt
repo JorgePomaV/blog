@@ -10,3 +10,25 @@ Route con Invoque: se usa cuando solo un controlador tiene solo una ruta, simpli
 Grupo de rutas: alternativa a Route resourse ya que simplifica cuando tenemos rutas que no son preterminadas de un CRUD laravel
                 se puede simplificar si tienen el mismo prefijo y name.
 
+
+    
+
+Directivas Environments: Se usa para controlar qué se muestra o ejecuta según el entorno, evitando que en producción 
+                        aparezcan cosas que solo sirven para desarrollar o depurar, y garantizando que la configuración 
+                        se ajuste al entorno sin cambiar manualmente el código cada vez.
+                        se configuta en .env
+
+
+
+Forelse: recorre el array y verifica al mismo tiempo si hay datos.
+
+
+contie y break en laravel: se puede poner condiciones en la misma linea
+
+Variable loop: da informacion de un bucle de for, podes obtener informacion del primer o ultimo, etc..
+
+Directiva @class: sirve para agregar estilos a ciertas clase que queramos con condicionales
+
+Atributos adisionales para formularios: hay valdiaciones por ejemplo readonly es para que no pueda ingresar un dato
+                                        el laravel hay atributos para poder controlar eso con validaciones que mandamos
+                                        por backend.
