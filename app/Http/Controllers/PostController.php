@@ -10,12 +10,12 @@ class PostController extends Controller
 
     public function index()
     {
-        return "Hola desde la pagina de posts";
+        return view('post.index');
     }
 
     public function create()
     {
-        return "Aqui se muestra el formulario para crear un nuevo post";
+        return view('post.create');
     }
 
     public function store()
@@ -25,11 +25,11 @@ class PostController extends Controller
 
     public function show($post)
     {
-        return "Aqui se muestra el post: " . $post;
+        return view('post.show', compact('post'));//crea un array asociativo a partir de variables.
     }
     public function edit($post)
     {
-        return "Aqui se muestra el formulario para editar el post: " . $post;
+        return view('post.edit', compact('post'));
     }
 
     public function update($post){

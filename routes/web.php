@@ -9,7 +9,7 @@ use function Pest\Laravel\post;
 // El controlador tiene un metodo __invoke por lo que no se necesita especificar el método
 Route::get('/', HomeController::class);
 // Grupo de rutas se usa el método group cuando se quiere agrupar varias rutas que comparten un mismo prefijo y nombre, tambien si no tienen la estructura de un crud
-Route::prefix('posts')->name('posts.')->controller(PostController::class)->group(function () {
+/*Route::prefix('posts')->name('posts.')->controller(PostController::class)->group(function () {
         // Ruta para mostrar el listado de registros
         Route::get('/', 'index')->name('index');
 
@@ -31,10 +31,16 @@ Route::prefix('posts')->name('posts.')->controller(PostController::class)->group
         // Ruta para eliminar un registro en especifico
         Route::delete('/{post}', 'destroy')->name('destroy');
     });
+*/
 
 
 
 
+// Definición de rutas utilizando el recurso de Laravel para manejar CRUD automáticamente
+// Esto crea todas las rutas necesarias para un CRUD de posts
+Route::resource('posts', PostController::class);
+    //->parameters(['articulos' => 'post']) // Cambiamos el nombre del parámetro de la ruta a 'post'
+    //->names('posts');// Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .index, .create, .store, .show, etc.
 
 
 
@@ -73,18 +79,6 @@ Route::delete('/posts/{post}', [PostController::class, 'destroy'])
 
 
 */
-
-// Definición de rutas utilizando el recurso de Laravel para manejar CRUD automáticamente
-// Esto crea todas las rutas necesarias para un CRUD de posts
-// Las rutas generadas son las siguientes:
-// GET /posts - index
-// GET /posts/create - create
-// POST /posts - store
-// GET /posts/{post} - show 
-
-Route::resource('articulos', PostController::class)
-    ->parameters(['articulos' => 'post']) // Cambiamos el nombre del parámetro de la ruta a 'post'
-    ->names('posts');// Definimos un nombre para la ruta para poder referenciarla más fácilmente en el código. Convención: nombre de la ruta en plural y con el sufijo .index, .create, .store, .show, etc.
 
 
 
