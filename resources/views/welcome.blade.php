@@ -6,9 +6,8 @@
     <title>welcome</title>
 </head>
 <body>
-    <h1>@php
-    echo $globalVariable2
-    @endphp</h1>
+    <h1>Esta es la vista de welcome</h1>
+    <h2>{{$globalVariable2}}</h2>
 
 </body>
 </html>
