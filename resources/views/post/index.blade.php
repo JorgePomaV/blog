@@ -13,5 +13,9 @@
     @if($valor == true)
         <p>El valor es verdadero</p>
     @endif
+
+   <p>@php
+   echo $globalVariable
+   @endphp</p>
 </body>
 </html>
