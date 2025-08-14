@@ -32,3 +32,33 @@ Directiva @class: sirve para agregar estilos a ciertas clase que queramos con co
 Atributos adisionales para formularios: hay valdiaciones por ejemplo readonly es para que no pueda ingresar un dato
                                         el laravel hay atributos para poder controlar eso con validaciones que mandamos
                                         por backend.
+
+Cmponentes de clase: se usa para reutilizar partes de codigo mas especificas y perzonalisables.
+Include: se usa pora reutilizar vistas.
+
+Componentes anonimos: Usa componentes anónimos cuando necesites reutilizar HTML con variables, pero no lógica compleja.
+Si necesitas procesar datos antes de mostrarlos, ahí ya conviene un componente de clase.
+
+Componentes como plantilla: es la forma de trabajo desde la version 7.(Mas usada hoy en dia, mas que nada por jeststream)
+Herencia de plantilla: es la forma de trabajar antes de la version 8.
+
+Directiva @stack: sirve para apilar componentes por ejemplo estilos, meta descripciones, script.(se puede usar en componentes de platilla y herencia de plantilla)
+
+
+
+Revertir cambios: rollback/fresh/refresh
+
+    El comando: php artisan migrate::rollback
+    
+    solo volvera a reestablecer los cambios del ultimo lote.
+
+    1️⃣ php artisan migrate:fresh
+
+    Qué hace:
+    Borra TODAS las tablas de la base de datos.
+    Ejecuta de nuevo TODAS las migraciones desde cero.
+
+    2️⃣ php artisan migrate:refresh
+    Qué hace:
+    Ejecuta el método down() de todas las migraciones (esto revierte cada migración una por una).
+    Luego ejecuta el método up() de todas las migraciones (las vuelve a correr).
